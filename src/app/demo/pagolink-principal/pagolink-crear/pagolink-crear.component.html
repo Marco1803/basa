@@ -1,0 +1,98 @@
+<div class="row">
+  <div class="col-md-7">
+    <div class="card table-card">
+      <div class="card-header">
+        <h5>Listado de Productos</h5>
+        <div class="card-header-right wid-250">
+          <div class="form-group mb-0 m-r-10">
+            <label class="floating-label" for="pincode"></label>
+            <input type="text" class="form-control" id="pincode" placeholder="">
+            <div class="form-icon">
+              <button class="btn btn-outline-primary btn-sm border-0">Buscar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <form novalidate [formGroup]="productoForm">
+            <table class="table table-borderless mb-0">
+              <tbody>
+                <tr *ngFor="
+              let prod of listaProdcutos;
+              index as i">
+                  <td>
+                    <div class="d-inline-block align-middle text-center">
+                      <img src="{{prod.image}}" alt="contact-img" title="contact-img" class="rounded" height="90" />
+                    </div>
+                    <div class="d-inline-block align-middle m-l-10">
+                      <a href="javascript:" class="text-body">
+                        <h5 class="mb-1">{{prod.name}}</h5>
+                      </a>
+                      <p class="text-muted mb-1">{{prod.description}}</p>
+                      <h4>L. {{convertir(prod.amount)}}</h4>
+                    </div>
+                  </td>
+                  <td class="text-right">
+                    <div class="text-left d-inline-block">
+                      <div class="btn-group btn-group-sm" role="group" aria-label="button groups sm">
+                        <label>Cantidad &nbsp;</label>
+                        <input type="text" class="wid-70 text-center" pattern="[0-9]*" (keypress)="numberOnly($event)"
+                          formControlName="cant" id="telefono" />
+                      </div>&nbsp;&nbsp;
+                      <button class="button1 boton" (click)="envio(prod)" type="button">Agregar</button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <app-card cardTitle="Resumen de Compras" [options]="false" [isCardFooter]="true" footerClass="py-3">
+      <table class="table table-borderless mb-0">
+        <thead class="thead-light">
+          <tr>
+            <th>Prodcuto</th>
+            <th>cantidad</th>
+            <th>Total</th>
+          </tr>
+          </thead>
+        <tbody>
+          <tr *ngFor="let list of listaProdcutosCotiza; index as i">
+            <td>
+              <h6 class="mb-2">{{list.productName}}</h6>
+            </td>
+            <td>
+              <h6 ><span class="float-center">{{list.quantity}}</span></h6>
+            </td>
+            <td>
+              <h6 ><span class="float-center">{{(list.subtotalPrice)}}</span></h6>
+            </td>
+          </tr>
+        </tbody>
+        <hr>
+          <tbody>
+            <tr>
+              <td>
+                <h6 class="mb-2">Monto Total </h6>
+              </td>
+              <td>
+                <h6><span class="float-center">{{sumaCant}}</span></h6>
+              </td>
+              <td>
+                <h6><span class="float-center">{{sumaTotal}}</span></h6>
+              </td>
+            </tr>
+          </tbody> 
+      </table>
+
+      <div class="app-card-footer">
+        <button (click)="procesar()" class="btn btn-warning">Procesar Compra</button>
+      </div>
+    </app-card>
+  </div>
+</div>

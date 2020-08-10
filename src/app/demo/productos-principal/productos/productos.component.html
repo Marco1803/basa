@@ -1,0 +1,134 @@
+<div class="row btn-page">
+  <div class="col-sm-12">
+    <app-card [hidHeader]="true" cardClass="card-datatable">
+      <div class="row align-items-center m-l-0">
+        <div class="col-sm-6"></div>
+        <div class="col-sm-6 text-right">
+          <button class="btn btn-success btn-sm btn-round has-ripple" (click)="open(content)"><i
+              class="feather icon-plus"></i> Agregar Producto</button>
+        </div>
+
+        <ng-template #content let-c="close" let-d="dismiss">
+          <form novalidate [formGroup]="productoForm">
+          <div class="app-modal-header">
+            <h5 class="modal-title">Agregar Producto</h5>
+            <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close"
+              (click)="close(content)"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="app-modal-body">
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input type="text" formControlName="merchantId" class="form-control"  placeholder="comercioId">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input type="text" formControlName="name" class="form-control"  placeholder="Nombre">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input type="text" formControlName="description" class="form-control"  placeholder="Descripcion">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input type="text" formControlName="amount" class="form-control"  placeholder="Monto">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <select class="form-control" formControlName="status">
+                    <option *ngFor="let itemEst of listaEstado" [value]="itemEst.nombre">{{ itemEst.nombre }}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input type="text" formControlName="sku" class="form-control"  placeholder="Sku">
+                </div>
+              </div>
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="exampleFormControlFile1">Elegir Archivo</label>
+                  <input type="file" formControlName="image" (change)="handleInputChange($event)" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="app-modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal"
+              (click)="close(content)">Cerrar</button>
+            <button type="button" class="btn btn-primary" (click)="grabarProdcuto()">Submit</button>
+          </div>
+        </form>
+        </ng-template>
+
+        <!-- Inicio Modal -->
+        
+        <!-- Fin Modal -->
+
+      </div>
+      <div class="table-responsive">
+        <table id="report-table" class="table mb-0">
+          <thead class="thead-light">
+            <tr>
+              <th>Nombre</th>
+              <th>ID Producto</th>
+              <th>ID Merchant</th>
+              <th>Descripcion</th>
+              <th>Currency</th>
+              <th>Amount</th>
+              <th>Estado</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="
+            let prod of listaProductos;
+            index as i">
+              <td class="align-middle">
+                <img src="{{prod.image}}" alt="contact-img" title="contact-img" class="rounded mr-3"
+                  height="48" />
+                <p class="m-0 d-inline-block align-middle font-16">
+                  <a href="javascript:" class="text-body">{{prod.nombre}}</a>
+                  <br />
+                  <span class="text-warning feather icon-star-on"></span>
+                  <span class="text-warning feather icon-star-on"></span>
+                  <span class="text-warning feather icon-star-on"></span>
+                  <span class="text-warning feather icon-star-on"></span>
+                  <span class="text-warning feather icon-star-on"></span>
+                </p>
+              </td>
+              <td class="align-middle">
+                {{prod.productId}}
+              </td>
+              <td class="align-middle">
+                {{prod.merchantId}}
+              </td>
+              <td class="align-middle">
+                {{prod.description}}
+              </td>
+              <td class="align-middle">
+                {{prod.currency}}
+              </td>
+              <td class="align-middle">
+                <span class="badge badge-success">{{prod.amount}}</span>
+              </td>
+              <td class="align-middle">
+                <span class="badge badge-success">{{prod.status}}</span>
+              </td>
+
+              <td class="table-action">
+                <a href="javascript:" class="btn btn-icon btn-outline-primary"><i class="feather icon-eye"></i></a>
+                <a href="javascript:" class="btn btn-icon btn-outline-success"><i class="feather icon-edit"></i></a>
+                <a href="javascript:" class="btn btn-icon btn-outline-danger"><i class="feather icon-trash-2"></i></a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </app-card>
+  </div>
+</div>

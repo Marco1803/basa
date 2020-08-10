@@ -1,0 +1,94 @@
+<app-card cardTitle="Basic Wizard" [options]="false">
+  <form novalidate [formGroup]="pagolinkGenerateForm">
+    <aw-wizard #wizard class="arc-wizard">
+
+      <!-- pagina 1 -->
+      <aw-wizard-step stepTitle="Profile">
+        <div class="row">
+          <div class="col-sm-12">
+            <h5>Paso 01</h5>
+            <hr>
+            <h6>Ingrese nombre del Link</h6>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" formControlName="description"  class="form-control" placeholder="Nombre del Link">
+              </div>
+            </div>
+            <h6>Vigencia</h6>
+            <div class="row">
+              <div class="col-sm-2">
+                <div class="form-check">
+                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+              </div>
+              <div class="col-sm-2">
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+              </div>
+            </div>
+            <br/>
+            <div class="row">
+              <div class="col-sm-4 form-group row">
+                <div class="col-10">
+                  <input class="form-control" formControlName="expirationDate" type="date" value="2011-08-19" id="example-date-input">
+                </div>
+              </div>
+          </div>
+          </div>
+          <div class="col-sm-12 centered-content">
+            <div class="btn-group mt-10">
+              <button type="button" class="btn btn-primary btn-sm" awNextStep>Continuar</button>
+            </div>
+          </div>
+        </div>
+      </aw-wizard-step>
+
+      <!-- pagina 2 -->
+      <aw-wizard-step stepTitle="Work">
+        <div class="row">
+          <div class="col-sm-12">
+            <h5>Seleccion de Productos</h5>
+            <hr>
+            <app-pagolink-crear></app-pagolink-crear>
+          </div>
+          <div class="col-sm-12 centered-content">
+            <div class="btn-group mt-10">
+              <button type="button" class="btn btn-secondary btn-sm" awPreviousStep>Regresar</button>
+              <button type="button" class="btn btn-primary btn-sm" awNextStep>Continuar</button>
+            </div>
+          </div>
+        </div>
+      </aw-wizard-step>
+
+      <!-- pagina 3 -->
+      <aw-wizard-step stepTitle="Finished">
+        <div class="row">
+          <div class="col-sm-12">
+            <h5>Paso Final</h5>
+            <hr>
+            <h6>Ingrese Direccion</h6>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" formControlName="description" class="form-control" placeholder="Ingrese Ruc">
+              </div>
+            </div>
+            <h6>Ingrese DNI</h6>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" formControlName="dni" class="form-control" placeholder="Ingrese DNI">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-12 centered-content">
+            <div class="btn-group mt-10">
+              <button type="button" class="btn btn-secondary btn-sm" awPreviousStep>Regresar</button>
+              <button type="button" (click)="generarPagoLink()" class="btn btn-success btn-sm" >Finalizar</button>
+            </div>
+          </div>
+        </div>
+      </aw-wizard-step>
+    </aw-wizard>
+  </form>
+</app-card>
