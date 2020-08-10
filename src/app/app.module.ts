@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './theme/shared/shared.module';
 
@@ -24,6 +24,8 @@ import { ToggleFullScreenDirective } from './theme/shared/full-screen/toggle-ful
 /* Menu Items */
 import { NavigationItem } from './theme/layout/admin/navigation/navigation';
 import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthSignComponent } from './demo/pages/authentication/auth-sign/auth-sign.component';
+import { CognitoService } from './cognito.service';
 
 @NgModule({
   declarations: [
@@ -40,12 +42,15 @@ import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule 
     NavSearchComponent,
     NavRightComponent,
     ConfigurationComponent,
-    ToggleFullScreenDirective
+    ToggleFullScreenDirective,
+    /* :::::: nuevos componentes :::: */
+    AuthSignComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     SharedModule,
     NgbDropdownModule,
     NgbTooltipModule,

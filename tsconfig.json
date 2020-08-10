@@ -5,6 +5,31 @@
   To learn more about this file see: https://angular.io/config/solution-tsconfig.
 */
 {
+  "compileOnSave": false,
+  "compilerOptions": {
+      "baseUrl": "./src",
+      "outDir": "./dist/out-tsc",
+      "sourceMap": true,
+      "declaration": false,
+      "downlevelIteration": true,
+      "experimentalDecorators": false,
+      "module": "esnext",
+      "moduleResolution": "node",
+      "importHelpers": true,
+      "target": "es2015",
+      "typeRoots": [
+          "node_modules/@types"
+      ],
+      "lib": [
+          "es2018",
+          "dom"
+      ],
+      "paths": {
+          "@fuse": [
+              "@fuse/"
+          ]
+      }
+  },
   "files": [],
   "references": [
     {
@@ -16,5 +41,5 @@
     {
       "path": "./e2e/tsconfig.json"
     }
-]
+  ]
 }
