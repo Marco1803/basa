@@ -25,7 +25,8 @@ import { ToggleFullScreenDirective } from './theme/shared/full-screen/toggle-ful
 import { NavigationItem } from './theme/layout/admin/navigation/navigation';
 import { NgbButtonsModule, NgbDropdownModule, NgbTabsetModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthSignComponent } from './demo/pages/authentication/auth-sign/auth-sign.component';
-import { CognitoService } from './cognito.service';
+
+
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { CognitoService } from './cognito.service';
     NgbDropdownModule,
     NgbTooltipModule,
     NgbButtonsModule,
-    NgbTabsetModule
+    NgbTabsetModule,
+    HttpClientModule
   ],
   providers: [NavigationItem],
   bootstrap: [AppComponent]

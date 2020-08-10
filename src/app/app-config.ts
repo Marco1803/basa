@@ -6,8 +6,8 @@ export class NextConfig {
     layoutType: 'menu-light', // menu-dark, menu-light, dark
     headerBackColor: 'background-blue', // background-blue, background-red, background-purple, background-info, background-dark
     rtlLayout: false,
-    navFixedLayout: false,
-    headerFixedLayout: false,
+    navFixedLayout: true,
+    headerFixedLayout: true,
     boxLayout: false,
   };
 }

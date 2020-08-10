@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 export interface NavigationItem {
   id: string;
@@ -26,53 +26,99 @@ export interface Navigation extends NavigationItem {
 }
 
 const NavigationItems = [
+  // {
+  //   id: 'other',
+  //   title: 'Other',
+  //   type: 'group',
+  //   icon: 'feather icon-align-left',
+  //   children: [
+  //     {
+  //       id: 'sample-page',
+  //       title: 'Sample Page',
+  //       type: 'item',
+  //       url: '/sample-page',
+  //       classes: 'nav-item',
+  //       icon: 'feather icon-sidebar'
+  //     },
+  //     {
+  //       id: 'productos',
+  //       title: 'Lista de Productos',
+  //       type: 'item',
+  //       url: '/productos-principal/productos'
+  //     },
+  //     {
+  //       id: 'pagolink-crear',
+  //       title: 'Crear Pagolink',
+  //       type: 'item',
+  //       url: '/pagolink-principal/pagolink-crear'
+  //     }
+  //   ]
+  // },
   {
-    id: 'other',
-    title: 'Other',
+    id: 'admin-panel',
+    title: 'Admin Panel',
     type: 'group',
-    icon: 'feather icon-align-left',
+    icon: 'feather icon-monitor',
     children: [
       {
-        id: 'sample-page',
-        title: 'Sample Page',
-        type: 'item',
-        url: '/sample-page',
-        classes: 'nav-item',
-        icon: 'feather icon-sidebar'
-      },
-      {
-        id: 'menu-level',
-        title: 'Menu Levels',
+        id: 'pagolink-principal',
+        title: 'Pago Link',
         type: 'collapse',
-        icon: 'feather icon-menu',
+        icon: 'feather icon-activity',
         children: [
           {
-            id: 'menu-level-2.1',
-            title: 'Menu Level 2.1',
+            id: 'pagolink',
+            title: 'Lista Pagolink',
             type: 'item',
-            url: 'javascript:',
-            external: true
+            url: '/pagolink-principal/pagolink'
           },
           {
-            id: 'menu-level-2.2',
-            title: 'Menu Level 2.2',
-            type: 'collapse',
-            children: [
-              {
-                id: 'menu-level-2.2.1',
-                title: 'Menu Level 2.2.1',
-                type: 'item',
-                url: 'javascript:',
-                external: true
-              },
-              {
-                id: 'menu-level-2.2.2',
-                title: 'Menu Level 2.2.2',
-                type: 'item',
-                url: 'javascript:',
-                external: true
-              }
-            ]
+            id: 'pagolink-generar',
+            title: 'Generar Pagolink',
+            type: 'item',
+            url: '/pagolink-principal/pagolink-generar'
+          }
+        ]
+      },
+      {
+        id: 'productos-principal',
+        title: 'Productos',
+        type: 'collapse',
+        icon: 'feather icon-package',
+        children: [
+          {
+            id: 'productos',
+            title: 'Lista Productos',
+            type: 'item',
+            url: '/productos-principal/productos'
+          }
+        ]
+      },
+      {
+        id: 'usuarios-principal',
+        title: 'Usuarios',
+        type: 'collapse',
+        icon: 'feather icon-package',
+        children: [
+          {
+            id: 'usuarios',
+            title: 'Lista Usuarios',
+            type: 'item',
+            url: '/usuarios-principal/usuarios'
+          }
+        ]
+      },
+      {
+        id: 'ventas-principal',
+        title: 'Ventas',
+        type: 'collapse',
+        icon: 'feather icon-package',
+        children: [
+          {
+            id: 'ventas',
+            title: 'Lista de Ventas',
+            type: 'item',
+            url: '/ventas-principal/ventas'
           }
         ]
       }
